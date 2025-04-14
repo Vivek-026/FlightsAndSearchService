@@ -30,6 +30,7 @@ const create =async(req,res)=>{
 
 const destroy = async (req,res)=>{
     try{
+        console.log(req.params.id);
         const response= await cityService.deleteCity(req.params.id);
         return res.status(200).json({ 
             data : response, 
@@ -77,6 +78,7 @@ const get =async (req,res)=>{
 const update = async (req,res)=>{
     try{
         const city= await cityService.updateCity(req.params.id, req.body);
+        
         return res.status(201).json({ 
             data : city, 
             success : true,
@@ -100,6 +102,6 @@ const update = async (req,res)=>{
 module.exports={
     create, 
     destroy,
-    update, 
+    get, 
     update
 }

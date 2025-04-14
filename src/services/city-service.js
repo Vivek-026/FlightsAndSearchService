@@ -2,14 +2,15 @@ const { response } = require('express');
 const {CityRepository}= require('../repository/index')    
 
 class CityService {
-    CityService(){
-        this.CityRepository = new CityRepository();
+    constructor(){
+        this.cityRepository = new CityRepository();
     }
 
     async createCity(data){
         try{
-            const city =await this.CityRepository.createCity(data)
-            return city
+            const city =await this.cityRepository.createCity(data);
+            // console.log(city);
+            return city;
         }
         catch(error){
 
@@ -22,8 +23,8 @@ class CityService {
 
     async deleteCity(cityId){
         try{
-
-            const response=await this.CityRepository.deleteCity(cityId)
+            console.log(cityId);
+            const response=await this.cityRepository.deleteCity(cityId)
             return response;
 
         }
@@ -37,7 +38,10 @@ class CityService {
     async updateCity(cityId, data){
 
         try{
-            const city= await this.CityRepository.updateCity(cityId,data);
+            
+            
+            const city= await this.cityRepository.updateCity(cityId,data);
+            console.log(city);
             return city;
         }
         catch(error){
@@ -51,7 +55,7 @@ class CityService {
     async getCity(cityId){
         try{
 
-            const city= await this.CityRepository.getCity(cityId);
+            const city= await this.cityRepository.getCity(cityId);
             return city; 
 
         }

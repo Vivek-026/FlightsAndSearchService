@@ -10,7 +10,7 @@ const setupAndStartServer = async ()=>{
     const app=express();
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
-    
+    // console.log(PORT);
     app.use('/api', ApiRoutes);
     app.listen(PORT,()=>{
         console.log(`Server started at ${PORT}`)
